@@ -35,7 +35,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.PreviousBtn = new System.Windows.Forms.Button();
             this.NextBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.NowPageText = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_Title = new System.Windows.Forms.TextBox();
             this.textBox_Content = new System.Windows.Forms.TextBox();
@@ -44,9 +44,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.EnterBtn = new System.Windows.Forms.Button();
             this.CleanBtn = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.logText = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox_QueryKetword = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.QueryBtn = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -111,6 +111,7 @@
             this.PreviousBtn.TabIndex = 5;
             this.PreviousBtn.Text = "上一頁";
             this.PreviousBtn.UseVisualStyleBackColor = true;
+            this.PreviousBtn.Click += new System.EventHandler(this.PreviousBtn_Click);
             // 
             // NextBtn
             // 
@@ -120,16 +121,17 @@
             this.NextBtn.TabIndex = 6;
             this.NextBtn.Text = "下一頁";
             this.NextBtn.UseVisualStyleBackColor = true;
+            this.NextBtn.Click += new System.EventHandler(this.NextBtn_Click);
             // 
-            // label1
+            // NowPageText
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(174, 405);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 15);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "當前位於第999頁";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.NowPageText.AutoSize = true;
+            this.NowPageText.Location = new System.Drawing.Point(174, 405);
+            this.NowPageText.Name = "NowPageText";
+            this.NowPageText.Size = new System.Drawing.Size(118, 15);
+            this.NowPageText.TabIndex = 7;
+            this.NowPageText.Text = "當前位於第999頁";
+            this.NowPageText.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -187,6 +189,7 @@
             this.EnterBtn.TabIndex = 14;
             this.EnterBtn.Text = "確認";
             this.EnterBtn.UseVisualStyleBackColor = true;
+            this.EnterBtn.Click += new System.EventHandler(this.EnterBtn_Click);
             // 
             // CleanBtn
             // 
@@ -196,15 +199,15 @@
             this.CleanBtn.TabIndex = 15;
             this.CleanBtn.Text = "清空";
             this.CleanBtn.UseVisualStyleBackColor = true;
+            this.CleanBtn.Click += new System.EventHandler(this.CleanBtn_Click);
             // 
-            // label5
+            // logText
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(579, 423);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 15);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "提示文字";
+            this.logText.AutoSize = true;
+            this.logText.Location = new System.Drawing.Point(579, 423);
+            this.logText.Name = "logText";
+            this.logText.Size = new System.Drawing.Size(0, 15);
+            this.logText.TabIndex = 16;
             // 
             // label6
             // 
@@ -218,12 +221,12 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "新增事件";
             // 
-            // textBox3
+            // textBox_QueryKetword
             // 
-            this.textBox3.Location = new System.Drawing.Point(449, 43);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(219, 25);
-            this.textBox3.TabIndex = 19;
+            this.textBox_QueryKetword.Location = new System.Drawing.Point(449, 43);
+            this.textBox_QueryKetword.Name = "textBox_QueryKetword";
+            this.textBox_QueryKetword.Size = new System.Drawing.Size(219, 25);
+            this.textBox_QueryKetword.TabIndex = 19;
             // 
             // label7
             // 
@@ -243,6 +246,7 @@
             this.QueryBtn.TabIndex = 20;
             this.QueryBtn.Text = "查詢";
             this.QueryBtn.UseVisualStyleBackColor = true;
+            this.QueryBtn.Click += new System.EventHandler(this.QueryBtn_Click);
             // 
             // comboBox1
             // 
@@ -274,10 +278,10 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.QueryBtn);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox_QueryKetword);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.logText);
             this.Controls.Add(this.CleanBtn);
             this.Controls.Add(this.EnterBtn);
             this.Controls.Add(this.label4);
@@ -286,7 +290,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox_Title);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.NowPageText);
             this.Controls.Add(this.NextBtn);
             this.Controls.Add(this.PreviousBtn);
             this.Controls.Add(this.button5);
@@ -311,7 +315,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button PreviousBtn;
         private System.Windows.Forms.Button NextBtn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label NowPageText;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_Title;
         private System.Windows.Forms.TextBox textBox_Content;
@@ -320,9 +324,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button EnterBtn;
         private System.Windows.Forms.Button CleanBtn;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label logText;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox_QueryKetword;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button QueryBtn;
         private System.Windows.Forms.ComboBox comboBox1;
